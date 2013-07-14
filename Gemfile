@@ -10,6 +10,9 @@ gem 'pg'
 gem 'rest-client'
 gem 'pry-rails'
 
+# need them both for ts
+gem 'mysql2',          '0.3.12b4'
+gem 'thinking-sphinx', '~> 3.0.2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

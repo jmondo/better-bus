@@ -32,13 +32,16 @@ GEM
     erubis (2.7.0)
     hike (1.2.3)
     i18n (0.6.4)
+    innertube (1.0.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.1)
+    middleware (0.1.0)
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.7)
+    mysql2 (0.3.12b4)
     pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -70,6 +73,7 @@ GEM
     rake (10.1.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    riddle (1.5.7)
     slop (3.4.5)
     sprockets (2.10.0)
       hike (~> 1.2)
@@ -80,6 +84,12 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    thinking-sphinx (3.0.4)
+      activerecord (>= 3.1.0)
+      builder (>= 2.1.2)
+      innertube (>= 1.0.2)
+      middleware (>= 0.1.0)
+      riddle (>= 1.5.7)
     thor (0.18.1)
     thread_safe (0.1.0)
       atomic
@@ -93,8 +103,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  mysql2 (= 0.3.12b4)
   pg
   pry-rails
   rails (= 4.0.0)
   rails-api
   rest-client
+  thinking-sphinx (~> 3.0.2)
