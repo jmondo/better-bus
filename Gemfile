@@ -7,6 +7,8 @@ gem 'rails-api'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'rest-client'
+gem 'pry-rails'
 
 
 # To use ActiveModel has_secure_password
