@@ -5,10 +5,11 @@ class Scraper
   include ActiveModel::Serializers::Xml
 
   def replace_all_stops
-    Stop.destroy_all
+    Stop.delete_all
     all_muni_routes.each do |route|
       Stop.create(stops_for_route(route))
     end
+    nil
   end
 
   private
@@ -25,6 +26,6 @@ class Scraper
 
   def stops_for_route(route)
     response = get_and_parse_xml_with_params(command: 'routeConfig', a: 'sf-muni', r: route['tag'])
-    response['body']['route']['stop'].map{|x| x.slice('tag', 'title', 'lat', 'lon') }
+    response['body']['route']['stop'].map{|x| x.slice('tag', 'title', 'lat', 'lon').merge('route_tag' => route['tag']) }
   end
 end
