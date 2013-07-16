@@ -1,9 +1,10 @@
 class StopsController < ApplicationController
+  NEAREST_DISTANCE = 0.10
   def nearest_stops
-    lat = params[:lat].to_f.radians
-    lng = params[:lng].to_f.radians
+    lat = params[:lat].to_f
+    lng = params[:lng].to_f
     if params[:lat] && params[:lng]
-      stops = Stop.search(nil, :geo => [lat, lng], :order => "geodist ASC")
+      stops = Stop.near([lat, lng], NEAREST_DISTANCE)
       render :json => stops
     else
       render :json => { :errors => 'lat and lng must both be specified in params string (in degrees)' }, :status => 422
